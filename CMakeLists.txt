@@ -8,6 +8,9 @@ include_directories(include/)
 if(UNIX)
 	message(STATUS "UNIX OPERATING SYSTEM")
 endif()
-message("READ")
 
-add_executable(wordle_solve src/driver.cc src/read.cpp)
+message("BUILDING THE FILTER TEST EXECUTABLE")
+add_executable(filter_test tests/filter_test.cpp src/filter.cpp)
+
+
+add_executable(wordle_solve src/driver.cc src/read.cpp src/bot.cpp src/game.cpp src/filter.cpp)
