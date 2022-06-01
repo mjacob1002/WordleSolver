@@ -6,10 +6,10 @@ int main(){
 	Bot b(re);
 	std::cout << b.size() << std::endl;
 
-	for(int i = 0; i < 6; ++i)
+	for(int i = 0; i < 6 && !b.isFinished(); ++i)
 	{
 		std::cout << "WORDBANK SIZE: " << b.size() << std::endl;
-		std::cout << "IS BUILD STILL IN WORDBANK: " << b.count("build") << std::endl;
+		std::cout << "IS BUILD STILL IN WORDBANK: " << b.count("slate") << std::endl;
 		std::string guess = b.makeGuess();
 		std::cout << "BOT SAYS: " << guess << "\n";
 		std::string feedback;

@@ -21,4 +21,5 @@ class Filter{
 		void filterByFrequency(char, int); // used when there are repeats, for example double ss, and one s is yellow while another is grey. Filter out all of the words that have more than 1 s
 		size_t countInUnknown(std::string, char);
 		void removeFromWordBank(std::vector<std::string>);
+		
 };

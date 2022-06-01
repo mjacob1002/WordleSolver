@@ -22,4 +22,5 @@ class Bot {
 		void printWordBank();
 		size_t size(); // size of the word bank
 		size_t count(std::string);
+		bool isFinished();
 };

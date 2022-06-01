@@ -59,3 +59,7 @@ void Bot::printWordBank() {
 size_t Bot::count(std::string input){
 	return _word_bank.count(input);
 }
+
+bool Bot::isFinished(){
+	return find(_ans.begin(), _ans.end(), '_') == _ans.end();
+}
