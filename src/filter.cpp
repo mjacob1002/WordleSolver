@@ -34,6 +34,7 @@ bool Filter::unknownPosChar(std::string word, std::vector<char> in_word, std::ve
 	// for each character that is contained in the answer, but not in the right spot, check the unknown indices and see if they contain the letter. if they don't return true for to be removed
 	bool valid = false;
 	for(int i = 0; i < indices.size(); ++i){
+		valid = false; // at the start of every character that is checked, set valid to false
 		for(int idx : _unknown_indices){
 			if(word[idx] == in_word[i]){
 				valid = true; // it does contain that letter, search through the rest of them

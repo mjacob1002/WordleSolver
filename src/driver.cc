@@ -9,6 +9,7 @@ int main(){
 	for(int i = 0; i < 6; ++i)
 	{
 		std::cout << "WORDBANK SIZE: " << b.size() << std::endl;
+		std::cout << "IS BUILD STILL IN WORDBANK: " << b.count("build") << std::endl;
 		std::string guess = b.makeGuess();
 		std::cout << "BOT SAYS: " << guess << "\n";
 		std::string feedback;

@@ -11,7 +11,7 @@ Read::Read(std::string filename){
 	while(getline(ifs, word)){
 		_words.push_back(word);
 		_set_of_words.insert(word);
-		std::cout << word << std::endl;
+		std::cout << _words.size()  << " WORDS LOADED.\r";
 	}
 }
 
