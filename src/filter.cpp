@@ -1,7 +1,7 @@
 #include "filter.h"
 #include <algorithm>
 
-Filter::Filter(std::unordered_set<std::string>& wordbank, std::string& ans) : _wordbank(wordbank), _ans(ans) {
+Filter::Filter(std::unordered_set<std::string>& wordbank, std::string& ans /*std::string& guess*/) : _wordbank(wordbank), _ans(ans)/*, _guess(guess)*/ {
 	for(int i = 0; i < 5; ++i)
 		if(_ans[i] == '_')
 			_unknown_indices.insert(i);

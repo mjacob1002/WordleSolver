@@ -9,12 +9,14 @@ int main(){
 	for(int i = 0; i < 6 && !b.isFinished(); ++i)
 	{
 		std::cout << "WORDBANK SIZE: " << b.size() << std::endl;
-		std::cout << "IS BUILD STILL IN WORDBANK: " << b.count("slate") << std::endl;
+		size_t contains_boil = b.count("boils");
 		std::string guess = b.makeGuess();
+		std::cout << "DONE WITH GUESS " << i << "\n";
 		std::cout << "BOT SAYS: " << guess << "\n";
 		std::string feedback;
 		std::getline(std::cin, feedback);
 		b.filter(guess, feedback);
+		std::cout << b.getAns() << std::endl;
 	}
 	std::cout << "PROGRAM EXIT\n";
 }

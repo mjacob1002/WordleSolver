@@ -4,11 +4,12 @@
 
 #include "filter.h"
 #include "read.h"
-
+#include "guess.h"
 class Bot {
 	private:
 		// possible words that comply
 		std::unordered_set<std::string> _word_bank;
+		std::unordered_set<std::string> _guess_set;
 		std::vector<std::string> guesses; // stores the guesses
 		std::vector<std::string> results; // stores the results given back by wordle after 
 		std::string _ans = "_____";
@@ -23,4 +24,5 @@ class Bot {
 		size_t size(); // size of the word bank
 		size_t count(std::string);
 		bool isFinished();
+		std::string getAns();
 };

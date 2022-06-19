@@ -3,7 +3,8 @@
 
 Bot::Bot(Read reader): _reader(reader){
 	_word_bank = reader.getSetOfWords();
-	
+	_guess_set = _word_bank;
+	srand(time(NULL));	
 }
 
 size_t Bot::size(){return _word_bank.size();}
@@ -12,15 +13,27 @@ std::string Bot::makeGuess(){
 	// TODO: currently on random guess model, need to add smarter, entropy-based stuff
 	if(_first_guess){
 		_first_guess = false;
-		return "crane";
+		_guess_set.erase("tares");
+		return "tares";
 	}
+
+/*
 	int random = rand() % size();
 	for(std::string word : _word_bank)
 	{
-		if(random == 0) return word;
+		if(random == 0){
+			_guess_set.erase(word);
+			return word;
+		}
 		random--;
 	}
 	return "";
+	*/
+	// std::cout << "STARTING MAKE GUESS" << std::endl;
+	std::string guess = bestGuess(_guess_set, _word_bank);
+	// std::cout << "FINISHED MAKING GUESS\n";
+	_guess_set.erase(guess);
+	return guess;
 }
 
 void Bot::filter(std::string guess, std::string res) {
@@ -33,10 +46,10 @@ void Bot::filter(std::string guess, std::string res) {
 		if(c != '_' && c != '-'){
 			_ans[i] = c;
 		}
-		else if(c == '-') {
+		else if(c == '-') { // guessed char contained somwhere in the word, but not in the correct slot as guessed
 			chars_in_word.push_back(guess[i]);
 			idx.push_back(i);
-		} else {
+		} else { // res[i] == '_'
 			if(find(chars_in_word.begin(), chars_in_word.end(), guess[i]) == chars_in_word.end()){
 				not_in_word.push_back(guess[i]);
 				continue;
@@ -63,3 +76,5 @@ size_t Bot::count(std::string input){
 bool Bot::isFinished(){
 	return find(_ans.begin(), _ans.end(), '_') == _ans.end();
 }
+
+std::string Bot::getAns(){return _ans;}

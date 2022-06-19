@@ -9,9 +9,10 @@ class Filter{
 	private:
 		std::unordered_set<std::string>& _wordbank;
 		const std::string& _ans;
+		// const std::string& _guess;
 		std::unordered_set<int> _unknown_indices;
 	public:
-		Filter(std::unordered_set<std::string>&, std::string&);
+		Filter(std::unordered_set<std::string>&, std::string&/*, std::string&*/);
 		// passing in the chars not in it, the chars in it, and their corresponding indices they aren't located at
 		void filter(std::vector<char>, std::vector<char>, std::vector<int>);
 		void removeUnknownIndex(int idx);
