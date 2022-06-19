@@ -35,7 +35,7 @@ bool Filter::unknownPosChar(std::string word, std::vector<char> in_word, std::ve
 	bool valid = false;
 	for(int i = 0; i < indices.size(); ++i){
 		valid = false; // at the start of every character that is checked, set valid to false
-		for(int idx : _unknown_indices){
+		for(int idx = 0; idx < word.size(); ++idx){ // look through the entire word and make sure it contains the letters it must 
 			if(word[idx] == in_word[i]){
 				valid = true; // it does contain that letter, search through the rest of them
 				break;

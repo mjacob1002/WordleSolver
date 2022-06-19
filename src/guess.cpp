@@ -8,7 +8,7 @@ std::string bestGuess(std::unordered_set<std::string> guess_set, std::unordered_
 		Entropy e(guess, valid_words);
 		double entropy = e.getEntropy();
 		// std::cout << "ENTROPY FOR " << guess << ": " << entropy << std::endl;
-		if(entropy > max_entropy){
+		if(entropy > max_entropy || (entropy == max_entropy && !valid_words.count(res) && valid_words.count(guess))){
 			max_entropy = entropy;
 			res = guess;
 		}
