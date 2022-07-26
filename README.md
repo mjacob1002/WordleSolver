@@ -11,7 +11,9 @@
 When you start the program, you must input the result of the guess the bot said so that the bot can make another guess.
 
 Green Tiles = the letter that is green
+
 Yellow Tiles = "-"
+
 Gray tiles = "_"
 
 Above is the key when interacting with the bot through stdin.
